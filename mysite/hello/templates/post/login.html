@@ -1,0 +1,92 @@
+{% load socialaccount %} <!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+  padding: 2%;
+  width: 365px
+}
+.fa-facebook:hover{
+	color: white
+}
+.kakao{
+	height: auto;
+	width: 180px;
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<a href="../" class="navbar-brand">IZ*ONE</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="collapsibleNavbar">
+	<ul class="navbar-nav">
+		<li class="nav-item"><a href="../post/" class="nav-link">자유게시판</a></li>
+		<li class="nav-item"><a href="#" class="nav-link">앨범</a></li>
+		<li class="nav-item"><a href="#" class="nav-link">갤러리</a></li>
+		<!---- 2시간 동안 찾았는데 예쁘지 않아서 주석처리 그래도 나중에 많이 쓰일거 같아서 주석 [메뉴 토글]
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">갤러리<span class="caret"></span></a>
+                            <ul class="dropdown-menu bg-dark">
+                              <li class="nav-item"><a href="#" class="nav-link"> 권은비</a></li>
+                              <div class="dropdown-divider"></div>
+                              <li class="nav-item"><a href="#" class="nav-link"> 미야와키 사쿠라</a></li> -->
+	</ul>
+</div>
+</nav>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+			<div class="card-footer card card-signin my-5">
+				<div class="card-body">
+					<h3 class="card-title text-center">Sign In</h3>
+					<form method="POST">
+						 {% csrf_token %}
+						<div class="form-label-group">
+							<p>
+								 아이디
+							</p>
+							<input type="text" class="form-control" placeholder="ID" required autofocus {{form.username}} <p>
+						</p>
+						<p>
+							 비밀번호
+						</p>
+						<input type="password" class="form-control" placeholder="Password" required autofocus {{form.password}} <div>
+					</div>
+					<p>
+					</p>
+					<div class="">
+						<div class="justify-content-start">
+							<button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Sign in</button>
+						</form>
+					</div>
+					<p>
+						<div class="row justify-content-center">
+							<a class="fa fa-facebook text-center" href="{% provider_login_url 'facebook' method='oauth2' %}"></a>
+						</div>
+						<p>
+						</p>
+						<div class="row justify-content-center">
+							<a href="{% provider_login_url 'kakao' method='oauth2' %}"><img class="kakao" src="https://developers.kakao.com/assets/img/about/logos/login/kr/kakao_account_login_btn_medium_narrow_ov.png" alt="img"></a>
+						</div>
+					</p>
+					<div class="row justify-content-center">
+						<form action="/join">
+							<button class="btn btn-sm btn-secondary btn-block" type="submit">Sign Up</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</body>
+</html>

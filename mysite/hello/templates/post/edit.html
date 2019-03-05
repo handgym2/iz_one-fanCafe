@@ -1,0 +1,50 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<a href="../../../" class="navbar-brand">IZ*ONE</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="collapsibleNavbar">
+	<ul class="navbar-nav">
+		<li class="nav-item"><a href="../../../post/" class="nav-link">자유게시판</a></li>
+		<li class="nav-item"><a href="../../../album/" class="nav-link">앨범</a></li>
+		<!---- 2시간 동안 찾았는데 예쁘지 않아서 주석처리 그래도 나중에 많이 쓰일거 같아서 주석 [메뉴 토글]
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">갤러리<span class="caret"></span></a>
+                            <ul class="dropdown-menu bg-dark">
+                              <li class="nav-item"><a href="#" class="nav-link"> 권은비</a></li>
+                              <div class="dropdown-divider"></div>
+                              <li class="nav-item"><a href="#" class="nav-link"> 미야와키 사쿠라</a></li> -->
+	</ul>
+</div>
+</nav>
+<p>
+</p>
+<form method="POST" enctype="multipart/form-data">
+	 {% csrf_token %}
+	<div class="container-fluid">
+		<div class="form-group">
+			<div class="col">
+				<input type="text" class="form-control" placeholder="제목" {{form.title}} </div>
+			</div>
+			<div class="col">
+				<textarea class="form-control" rows="8" placeholder="내용" {{form.text}} </textarea>
+			</div>
+			<div class="row justify-content-end">
+				<div class="col-sm-2">
+					<label class="btn btn-dark btn-file col-lg-12">
+					<input type="file" class="btn btn-dark" style="display:none " {{form.image}} file </label>
+				</div>
+				<div class="col-sm-2">
+					<label class="btn btn-dark col-lg-11 btn-sm">
+					<button type="submit" class="btn btn-dark btn-sm">저장</button>
+					</label>
+				</div>
+			</div>
+		</form>
+		</body>
+		</html>

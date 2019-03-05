@@ -1,0 +1,68 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<div>
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+	<a href="/../../" class="navbar-brand">IZ*ONE</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+	<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav">
+			<li class="nav-item"><a href="http://127.0.0.1:8000/post/" class="nav-link">자유게시판</a></li>
+			<li class="nav-item"><a href="#" class="nav-link">앨범</a></li>
+			<!---- 2시간 동안 찾았는데 예쁘지 않아서 주석처리 그래도 나중에 많이 쓰일거 같아서 주석 [메뉴 토글]
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">갤러리<span class="caret"></span></a>
+                            <ul class="dropdown-menu bg-dark">
+                              <li class="nav-item"><a href="#" class="nav-link"> 권은비</a></li>
+                              <div class="dropdown-divider"></div>
+                              <li class="nav-item"><a href="#" class="nav-link"> 미야와키 사쿠라</a></li> -->
+		</ul>
+	</div>
+	</nav>
+</div>
+<div class="container">
+	<p>
+	</p>
+	 {% for post in posts %}
+	<div class="modal-header font-weight-bold">
+		 {{post.title}}
+		<div class="end">
+			 - {{post.user}}님-
+		</div>
+	</div>
+	<div class="row justify-content-end">
+		<a class="btn btn-dark btn-sm col-1" href="{% url 'edit' pk=post.pk %}">수정</a>
+		<a class="btn btn-dark btn-sm col-1" href="{% url 'delete' pk=post.pk %}">삭제</a>
+	</div>
+	<div class="">
+		<p>
+		</p>
+		<p class="text-left">
+			 {{post.text}}
+		</p>
+	</div>
+	 {% if post.image.url != none %} <img src="{{ post.image.url }} " width="500px" height="" alt="image">
+	{% endif %} {% endfor %}
+	<p></p>
+	<br>
+</div>
+<div id="disqus_thread" class="container card-footer">    
+<script>
+/*
+disqus 댓글
+*/
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://gailcsauce.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		 </div>     
+		 <br>
+</div>
