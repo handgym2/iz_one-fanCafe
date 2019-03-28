@@ -1,4 +1,4 @@
-I LOVE IZ_ONE
+<h1>I LOVE IZ_ONE</h1>
 
 <strong>현재 공식 사이트 앨범이 바뀌어 크롤링 중단</strong>
 
