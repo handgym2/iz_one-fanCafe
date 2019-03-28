@@ -106,16 +106,16 @@ def edit(request,pk):
     }
     return render(request,'post/edit.html',context)
 
-def crawl(request):
+#def crawl(request):
 
-    html = urlopen("http://iz-one.co.kr/photos/")  
+    #html = urlopen("http://iz-one.co.kr/photos/")  
 
-    bsObject = BeautifulSoup(html, "html.parser") 
+    #bsObject = BeautifulSoup(html, "html.parser") 
 
-    a = bsObject.find("div",{"class":"site-main"})
+    #a = bsObject.find("div",{"class":"site-main"})
 
-    b = a.find_all('a')
-    return HttpResponse(b)
+    #b = a.find_all('a')
+    #return HttpResponse(b)
 
 
 login = LoginView.as_view(template_name='post/login.html')
